@@ -1,5 +1,11 @@
 <template>
     <main>
+        <div class="container mb-5">
+            <ToggleButton texto="Ver Seccion" @toggle="mostrar = !mostrar" />
+            <ToggleSection 
+                v-if="mostrar"
+            />
+        </div>
         <section class="container mb-5">
             <h2 class="text-center my-5 display-5 fw-normal">{{subtitulo}}</h2>
             <div class="row gap-5 justify-content-evenly">
@@ -34,6 +40,8 @@
     import dulces from '@/assets/img/dulces.jpg'
     import empanadas from '@/assets/img/empanadas.jpg'
     import verduras from '@/assets/img/verduras.jpg'
+    import ToggleButton from './ToggleButton.vue';
+    import ToggleSection from './ToggleSection.vue';
 
     const cards = ref([
         {
@@ -79,5 +87,6 @@
             imagen: colaciones
         },
     ])
-
+    
+    const mostrar = ref(false)
 </script>
